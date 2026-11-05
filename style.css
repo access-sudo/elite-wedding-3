@@ -219,3 +219,10 @@ h1,h2,h3,h4,h5,h6,.eq-left h2,.eq-fhead span,.hh-copy .hh-tag,.sk-copy .sk-sub,.
 .bn-svg .pt{animation-name:bfall;animation-timing-function:linear;animation-iteration-count:infinite;transform-box:fill-box;transform-origin:center}
 @keyframes bfall{0%{transform:translate(0,-30px) rotate(0);opacity:0}8%{opacity:.9}92%{opacity:.85}100%{transform:translate(var(--dx),830px) rotate(540deg);opacity:0}}
 @media(prefers-reduced-motion:reduce){.bn-svg *{animation:none!important}}
+/* Banner: sketchbook ink + watercolour, drawn once */
+.bn-sketch .pill,.bn-sketch .sway{animation:none}
+.bnk{fill:none!important;stroke:#3a2a26!important;stroke-width:1.35px!important;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1;animation:bnink 2.4s cubic-bezier(.33,1,.68,1) forwards;animation-delay:var(--d,0s)}
+.bn-sketch text,.bn-sketch .lg{opacity:0;animation:bnfade .9s ease 1.9s forwards}
+.bn-sketch .wash{opacity:0;animation:bnfade 1.8s ease 2.1s forwards}
+@keyframes bnink{to{stroke-dashoffset:0}}@keyframes bnfade{to{opacity:1}}
+@media(prefers-reduced-motion:reduce){.bnk{stroke-dashoffset:0;animation:none}.bn-sketch text,.bn-sketch .lg,.bn-sketch .wash{opacity:1;animation:none}}
