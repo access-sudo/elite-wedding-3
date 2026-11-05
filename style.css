@@ -49,3 +49,8 @@ body{background:var(--cream)}.topbar{background:#641b2a;letter-spacing:.12em}.na
 .home-destinations .destination-body p{font-size:12.5px;line-height:1.8;min-height:0;margin:12px 0 14px;padding-top:12px;border-top:1px dashed rgba(53,36,44,.22)}
 .home-destinations .destination-actions a{font-size:11.5px}
 @media(max-width:620px){.home-destinations{gap:30px}}
+.sk-copy .sk-sub{font:italic 500 clamp(20px,2vw,25px)/1.3 'Cormorant Garamond',serif;color:#a96d2b;margin:0 0 14px;max-width:none}
+.sk-tags{list-style:none;display:flex;flex-wrap:wrap;gap:8px;margin:0 0 18px;padding:0}
+.sk-tags li{border:1px solid #e2d3bf;border-radius:30px;padding:7px 14px;font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:#6d5d57}
+.sk-copy .sk-quote{display:flex;align-items:center;gap:10px;font:italic 500 clamp(19px,1.8vw,23px)/1.3 'Cormorant Garamond',serif;color:#6d5d57;margin:0 0 18px}
+.sk-quote svg{color:#c68a2d;flex:none}
