@@ -10,3 +10,28 @@ body{background:var(--cream)}.topbar{background:#641b2a;letter-spacing:.12em}.na
 
 /* 2026 editorial destination collection */
 .destination-gallery{background:#fffdf9}.section-intro{max-width:690px;margin:0 auto 36px;text-align:center}.section-intro p{font-size:15px}.destination-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:25px;margin-top:32px}.destination-card{background:#fff;border:1px solid #eadbcf;box-shadow:0 9px 25px #542b1b0b;transition:transform .3s,box-shadow .3s;overflow:hidden}.destination-card:hover{transform:translateY(-6px);box-shadow:0 20px 45px #542b1b1b}.destination-card img{display:block;width:100%;aspect-ratio:1.34;object-fit:cover;transition:transform .5s}.destination-card:hover img{transform:scale(1.035)}.destination-body{padding:21px 22px 24px}.destination-body h3{font-size:28px;margin:6px 0}.destination-body p{font-size:13px;min-height:45px;margin:8px 0 15px}.destination-actions{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap}.destination-actions a{font-size:12px}.home-destinations{margin-top:42px}.venue-cta{text-align:center;background:#f8eee6;padding:44px 20px;margin-top:60px;border:1px solid #ead9ca}.venue-cta h2{margin:0}.venue-cta p{margin:10px auto 20px;max-width:590px}.venue-cta .btn{margin:4px}.venue-city-strip{display:flex;gap:13px;overflow-x:auto;padding:10px 0 23px;scroll-snap-type:x mandatory}.venue-city-strip a{min-width:160px;max-width:160px;position:relative;scroll-snap-align:start;border:1px solid #eadbcf;background:white}.venue-city-strip img{width:100%;height:105px;object-fit:cover;display:block}.venue-city-strip span{display:block;font-size:12px;padding:8px 9px;color:#641b2a;font-weight:700}.venue-search{max-width:500px;margin:25px 0 5px}.venue-search label{font-size:12px;color:#6d3c38;font-weight:700}.venue-search input{display:block;margin-top:6px}.hotel-counter{font-size:13px;color:#735b55}.hotel{transition:box-shadow .2s}.hotel:hover{box-shadow:0 10px 25px #3c211015}@media(max-width:920px){.destination-grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:600px){.destination-grid{grid-template-columns:1fr;gap:16px}.destination-card img{aspect-ratio:1.55}.destination-body p{min-height:0}.venue-city-strip a{min-width:135px;max-width:135px}}
+
+.sk-section{overflow:hidden}.sk-head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap;margin-bottom:30px}.sk-head .intro{margin:0}
+.sk-toggle small{display:block;font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:#8a7a70;margin-bottom:10px}
+.sk-toggle div{display:inline-flex;gap:4px;border:1px solid #e2d3bf;border-radius:40px;padding:4px;background:#fff}
+.sk-toggle button{border:0;background:transparent;border-radius:30px;padding:9px 20px;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:#6d5d57;font-weight:600}
+.sk-toggle button.on{background:#35242c;color:#fff}
+.sk-list{display:flex;flex-direction:column;gap:clamp(36px,6vw,80px)}
+.sk-row{display:grid;grid-template-columns:7fr 5fr;gap:clamp(24px,5vw,70px);align-items:center}
+.sk-row.sk-flip .sk-art{order:2}
+.sk-frame{position:relative;aspect-ratio:16/11;width:100%}
+.sk-svg{width:100%;height:100%;display:block;overflow:visible}
+.sk-ink{color:#3a2a26}
+.sk-num{display:flex;align-items:center;gap:14px;margin-bottom:6px}
+.sk-num b{font:italic 500 clamp(34px,4vw,48px) 'Cormorant Garamond',serif;color:#c68a2d;line-height:1}
+.sk-num i{flex:1;height:1px;background:#e2d3bf}
+.sk-num span{font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:#8a7a70;font-weight:600}
+.sk-copy h3{font-size:clamp(28px,3vw,40px);margin:6px 0 12px}
+.sk-copy p{max-width:420px;font-size:15px;line-height:1.85;margin:0 0 18px}
+.sk-svg .ink-path{stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 1.6s cubic-bezier(.33,1,.68,1)}
+.sk-svg .wash{opacity:0;transition:opacity 1.4s .7s}
+.sk-row.sk-in .ink-path{stroke-dashoffset:0}
+.sk-list.sk-colour .sk-row.sk-in .wash{opacity:1}
+.sk-copy{opacity:0;transform:translateY(18px);transition:.8s .2s}.sk-row.sk-in .sk-copy{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.sk-svg .ink-path{stroke-dashoffset:0;transition:none}.sk-list.sk-colour .sk-svg .wash{opacity:1;transition:none}.sk-copy{opacity:1;transform:none}}
+@media(max-width:800px){.sk-row{grid-template-columns:1fr}.sk-row.sk-flip .sk-art{order:0}.sk-head{align-items:flex-start}}
