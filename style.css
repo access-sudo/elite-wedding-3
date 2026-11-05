@@ -221,8 +221,21 @@ h1,h2,h3,h4,h5,h6,.eq-left h2,.eq-fhead span,.hh-copy .hh-tag,.sk-copy .sk-sub,.
 @media(prefers-reduced-motion:reduce){.bn-svg *{animation:none!important}}
 /* Banner: sketchbook ink + watercolour, drawn once */
 .bn-sketch .pill,.bn-sketch .sway{animation:none}
-.bnk{fill:none!important;stroke:#3a2a26!important;stroke-width:1.35px!important;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1;animation:bnink 2.4s cubic-bezier(.33,1,.68,1) forwards;animation-delay:var(--d,0s)}
+.bnk{fill:none!important;stroke:#7a655b!important;stroke-opacity:.95;stroke-width:1.25px!important;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1;animation:bnink 2.4s cubic-bezier(.33,1,.68,1) forwards;animation-delay:var(--d,0s)}
 .bn-sketch text,.bn-sketch .lg{opacity:0;animation:bnfade .9s ease 1.9s forwards}
 .bn-sketch .wash{opacity:0;animation:bnfade 1.8s ease 2.1s forwards}
 @keyframes bnink{to{stroke-dashoffset:0}}@keyframes bnfade{to{opacity:1}}
 @media(prefers-reduced-motion:reduce){.bnk{stroke-dashoffset:0;animation:none}.bn-sketch text,.bn-sketch .lg,.bn-sketch .wash{opacity:1;animation:none}}
+/* Process: single connecting line that fills each step */
+.process{position:relative}
+.process .step .dd{display:none}
+.process .pline{position:absolute;left:calc(100%/12);right:calc(100%/12);top:-1px;height:2px;z-index:1;pointer-events:none;background:rgba(185,133,56,.18)}
+.process .pline i{position:absolute;inset:0;background:linear-gradient(90deg,#d9ad69,#b98538 60%,#8a4d1a);transform-origin:left center}
+.process .step .number{z-index:2;background:#b98538;color:#fff;border-color:#b98538}
+.process.dd-ready .pline i{transform:scaleX(0)}
+.process.dd-ready .step .number{background:#fff;color:#671827;border-color:#b98538}
+.process.dd-ready.dd-in .pline i{transform:scaleX(1);transition:transform 2.75s linear .2s}
+.process.dd-ready.dd-in .step .number{animation:nfill .55s ease forwards;animation-delay:calc(.2s + var(--i,0)*.55s - .1s)}
+.process .step:nth-child(2){--i:0}.process .step:nth-child(3){--i:1}.process .step:nth-child(4){--i:2}.process .step:nth-child(5){--i:3}.process .step:nth-child(6){--i:4}.process .step:nth-child(7){--i:5}
+@keyframes nfill{0%{transform:scale(1);background:#fff;color:#671827}50%{transform:scale(1.28);box-shadow:0 0 0 8px rgba(185,133,56,.18)}100%{transform:scale(1);background:#b98538;color:#fff;box-shadow:0 0 0 6px #fffaf4}}
+@media(prefers-reduced-motion:reduce){.process.dd-ready .pline i{transform:none}.process.dd-ready .step .number{background:#b98538;color:#fff}.process.dd-ready.dd-in .step .number,.process.dd-ready.dd-in .pline i{animation:none;transition:none}}
