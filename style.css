@@ -35,3 +35,22 @@ body{background:var(--cream)}.topbar{background:#641b2a;letter-spacing:.12em}.na
 .sk-copy{opacity:0;transform:translateY(18px);transition:.8s .2s}.sk-row.sk-in .sk-copy{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){.sk-svg .ink-path{stroke-dashoffset:0;transition:none}.sk-list.sk-colour .sk-svg .wash{opacity:1;transition:none}.sk-copy{opacity:1;transform:none}}
 @media(max-width:800px){.sk-row{grid-template-columns:1fr}.sk-row.sk-flip .sk-art{order:0}.sk-head{align-items:flex-start}}
+/* Home destinations: taped-polaroid card UI */
+.home-destinations{gap:34px 26px;margin-top:50px}
+.home-destinations .destination-card{position:relative;overflow:visible;background:#fffdf9;border:1px solid rgba(53,36,44,.16);border-radius:3px;padding:10px;box-shadow:none;transition:border-color .3s,transform .3s}
+.home-destinations .destination-card:hover{transform:translateY(-4px);border-color:rgba(198,138,45,.8);box-shadow:none}
+.home-destinations .destination-card:before{content:"";position:absolute;top:-10px;left:50%;width:74px;height:20px;transform:translateX(-50%) rotate(-1deg);background:rgba(236,214,160,.6);border-left:1px dashed rgba(198,138,45,.45);border-right:1px dashed rgba(198,138,45,.45);z-index:2}
+.home-destinations .destination-card>a{display:block;overflow:hidden;background:#f6f0e6}
+.home-destinations .destination-card img{aspect-ratio:1.34;transition:transform 1.4s ease-out}
+.home-destinations .destination-card:hover img{transform:scale(1.04)}
+.home-destinations .destination-body{padding:16px 6px 6px}
+.home-destinations .destination-body .eyebrow{font-size:9px;letter-spacing:.22em;color:#8a7a70}
+.home-destinations .destination-body h3{font-size:26px;margin:6px 0 0;color:#35242c}
+.home-destinations .destination-body p{font-size:12.5px;line-height:1.8;min-height:0;margin:12px 0 14px;padding-top:12px;border-top:1px dashed rgba(53,36,44,.22)}
+.home-destinations .destination-actions a{font-size:11.5px}
+@media(max-width:620px){.home-destinations{gap:30px}}
+.sk-copy .sk-sub{font:italic 500 clamp(20px,2vw,25px)/1.3 'Cormorant Garamond',serif;color:#a96d2b;margin:0 0 14px;max-width:none}
+.sk-tags{list-style:none;display:flex;flex-wrap:wrap;gap:8px;margin:0 0 18px;padding:0}
+.sk-tags li{border:1px solid #e2d3bf;border-radius:30px;padding:7px 14px;font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:#6d5d57}
+.sk-copy .sk-quote{display:flex;align-items:center;gap:10px;font:italic 500 clamp(19px,1.8vw,23px)/1.3 'Cormorant Garamond',serif;color:#6d5d57;margin:0 0 18px}
+.sk-quote svg{color:#c68a2d;flex:none}
