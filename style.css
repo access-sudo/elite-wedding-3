@@ -184,3 +184,18 @@ h1,h2,h3,h4,h5,h6,.eq-left h2,.eq-fhead span,.hh-copy .hh-tag,.sk-copy .sk-sub,.
 .process.dd-ready .dd path{stroke-dashoffset:1}
 .process.dd-ready.dd-in .dd path{stroke-dashoffset:0}
 .process.dd-ready.dd-in .step:nth-child(2) .dd path{transition-delay:.2s}.process.dd-ready.dd-in .step:nth-child(3) .dd path{transition-delay:.4s}.process.dd-ready.dd-in .step:nth-child(4) .dd path{transition-delay:.6s}.process.dd-ready.dd-in .step:nth-child(5) .dd path{transition-delay:.8s}
+/* Process: identical arrows, pointer to pointer */
+.process .step .dd{position:absolute;top:-12px;left:calc(50% + 24px);width:calc(100% - 31px - 48px + 0px);height:24px;display:flex;align-items:center;transform:none;stroke:#b98538;fill:none;overflow:visible}
+.process .step .dd svg{display:block;height:24px;stroke:#b98538;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;fill:none;overflow:visible}
+.process .step .dd .sh{flex:1;min-width:0;width:auto}.process .step .dd .hd{width:14px;margin-left:-3px;flex:none}
+.process .step .dd path{stroke-dasharray:1;stroke-dashoffset:0;animation:none}
+.process.dd-ready .dd path{stroke-dashoffset:1}
+.process.dd-ready.dd-in .dd .sh path{stroke-dashoffset:0;transition:stroke-dashoffset 1.1s ease-out}
+.process.dd-ready.dd-in .dd .hd path{stroke-dashoffset:0;transition:stroke-dashoffset .35s ease-out 1s}
+.process.dd-ready.dd-in .step:nth-child(2) .dd path{transition-delay:.25s}.process.dd-ready.dd-in .step:nth-child(3) .dd path{transition-delay:.5s}.process.dd-ready.dd-in .step:nth-child(4) .dd path{transition-delay:.75s}.process.dd-ready.dd-in .step:nth-child(5) .dd path{transition-delay:1s}
+.process.dd-ready.dd-in .step:nth-child(2) .dd .hd path{transition-delay:1.2s}.process.dd-ready.dd-in .step:nth-child(3) .dd .hd path{transition-delay:1.45s}.process.dd-ready.dd-in .step:nth-child(4) .dd .hd path{transition-delay:1.7s}.process.dd-ready.dd-in .step:nth-child(5) .dd .hd path{transition-delay:1.95s}
+.process.dd-ready.dd-in .step:nth-child(1) .dd .hd path{transition-delay:1s}
+/* Banner: golden magnifier lens on hover */
+.hero-banner .lens{position:absolute;inset:0;overflow:hidden;pointer-events:none;clip-path:circle(var(--r) at var(--x) var(--y))}
+.hero-banner .lens img{position:absolute;inset:0;width:100%;height:100%;max-width:none;transform:scale(1.7);transform-origin:var(--x) var(--y)}
+.hero-banner .lens-ring{position:absolute;left:var(--x);top:var(--y);width:calc(var(--r)*2);height:calc(var(--r)*2);border-radius:50%;transform:translate(-50%,-50%);pointer-events:none;border:2px solid rgba(198,138,45,.95);box-shadow:0 0 0 5px rgba(255,255,255,.55),0 14px 40px rgba(75,26,36,.35),inset 0 0 26px rgba(255,255,255,.35);opacity:calc(var(--r)/40)}
