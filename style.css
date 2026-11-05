@@ -269,3 +269,11 @@ h1,h2,h3,h4,h5,h6,.eq-left h2,.eq-fhead span,.hh-copy .hh-tag,.sk-copy .sk-sub,.
 .ribbon-grid a:hover .ri{stroke:#8d1138}
 @media(prefers-reduced-motion:reduce){.ri *{animation:none;stroke-dasharray:none}}
 @media(max-width:700px){.ribbon-grid{grid-template-columns:repeat(2,1fr)}.ribbon-grid a:last-child{grid-column:1/-1;border-right:0}.ri{width:38px;height:38px}}
+/* Site-wide: Playfair Display for all headings & sub-headings (incl. italic accents) */
+h1,h2,h3,h4,h5,h6,h1 em,h2 em,h3 em,.hero h1 em,.editorial-inner h2 em,.eyebrow+h2,.hh-tag,.sk-sub,.sk-quote,.sk-num b,.quote,.hh-note,.rv-nav button,.eq-left h2,.eq-fhead span,.eq-note p,.stat strong,.step h3,.card h3,.destination-body h3,.pagehead h1,.pagehead h2{font-family:'Playfair Display',serif}
+h1 em,h2 em,h3 em{font-style:italic;font-weight:500}
+.hh-copy .hh-tag{font-style:italic;font-weight:500;font-size:clamp(26px,3vw,40px);line-height:1.25}
+.sk-copy .sk-sub{font-size:clamp(17px,1.7vw,21px);font-weight:400}
+.sk-copy .sk-quote{font-size:clamp(16px,1.5vw,19px)}
+.sk-num b{font-size:clamp(28px,3.4vw,40px);font-weight:500}
+.quote{font-size:22px}
