@@ -36,3 +36,4 @@ function pos(e){var r=b.getBoundingClientRect();b.style.setProperty('--x',(e.cli
 b.addEventListener('mouseenter',function(e){pos(e);target=max();b.classList.add('bw-on');go()});
 b.addEventListener('mousemove',function(e){pos(e);if(target===0){target=max();go()}});
 b.addEventListener('mouseleave',function(){target=0;b.classList.remove('bw-on');go()})})();
+(function(){var p=document.querySelector('.process');if(!p)return;p.classList.add('dd-ready');var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){p.classList.add('dd-in');io.disconnect()}})},{threshold:.3});io.observe(p)})();

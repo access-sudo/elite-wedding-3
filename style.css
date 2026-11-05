@@ -176,3 +176,11 @@ h1,h2,h3,h4,h5,h6,.eq-left h2,.eq-fhead span,.hh-copy .hh-tag,.sk-copy .sk-sub,.
 .hh-copy .hh-tag{font-style:italic;font-weight:500;letter-spacing:-.01em;font-size:clamp(26px,3vw,40px)}
 .sk-copy .sk-sub{font-style:italic;font-weight:400;font-size:clamp(17px,1.7vw,21px)}
 .rv-slide figcaption b{font-size:18px;font-weight:600}
+/* single doodle arrow per step, drawn once and kept */
+.dd.dr{transform:none;right:6px;width:calc(50% - 38px)}
+.process .step:last-child .dd{display:none}
+.dd path{animation:none;stroke-dashoffset:0;transition:stroke-dashoffset 1.3s ease-out}
+.dd .hd{transition-delay:.9s}
+.process.dd-ready .dd path{stroke-dashoffset:1}
+.process.dd-ready.dd-in .dd path{stroke-dashoffset:0}
+.process.dd-ready.dd-in .step:nth-child(2) .dd path{transition-delay:.2s}.process.dd-ready.dd-in .step:nth-child(3) .dd path{transition-delay:.4s}.process.dd-ready.dd-in .step:nth-child(4) .dd path{transition-delay:.6s}.process.dd-ready.dd-in .step:nth-child(5) .dd path{transition-delay:.8s}
