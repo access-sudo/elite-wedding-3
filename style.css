@@ -202,3 +202,20 @@ h1,h2,h3,h4,h5,h6,.eq-left h2,.eq-fhead span,.hh-copy .hh-tag,.sk-copy .sk-sub,.
 
 .hero-banner .bn-svg{display:block;width:100%;height:auto}
 .hero-banner .lens svg{position:absolute;inset:0;width:100%;height:100%;transform:scale(1.7);transform-origin:var(--x) var(--y);display:block}
+/* Banner: no hover lens, looping vector animation, contained */
+.hero-banner{overflow:hidden;cursor:default}.hero-banner.bw-on{cursor:default}
+.hero-banner .lens,.hero-banner .lens-ring{display:none}
+.hero-banner .bn-svg{display:block;width:100%;height:auto;overflow:hidden}
+@media(max-width:700px){.hero-banner{overflow-x:auto;-webkit-overflow-scrolling:touch}.hero-banner .bn-svg{width:900px;max-width:none}}
+.bn-svg .pill{animation:pfloat 5s ease-in-out infinite}
+.bn-svg .p2{animation-delay:-.7s}.bn-svg .p3{animation-delay:-1.4s}.bn-svg .p4{animation-delay:-2.1s}.bn-svg .p5{animation-delay:-2.8s}.bn-svg .p6{animation-delay:-3.5s}.bn-svg .p7{animation-delay:-4.2s}
+@keyframes pfloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.bn-svg .spin{transform-box:fill-box;transform-origin:center;animation:bspin 60s linear infinite}.bn-svg .spin.rev{animation-direction:reverse;animation-duration:80s}
+@keyframes bspin{to{transform:rotate(360deg)}}
+.bn-svg .sway{transform-origin:0 60px;animation:bsway 7s ease-in-out infinite}.bn-svg .sway.sr{animation-delay:-3.5s}
+@keyframes bsway{0%,100%{transform:rotate(-1.1deg)}50%{transform:rotate(1.3deg)}}
+.bn-svg .rip{animation:brip 6s ease-in-out infinite alternate}
+@keyframes brip{from{transform:translateX(-18px)}to{transform:translateX(18px)}}
+.bn-svg .pt{animation-name:bfall;animation-timing-function:linear;animation-iteration-count:infinite;transform-box:fill-box;transform-origin:center}
+@keyframes bfall{0%{transform:translate(0,-30px) rotate(0);opacity:0}8%{opacity:.9}92%{opacity:.85}100%{transform:translate(var(--dx),830px) rotate(540deg);opacity:0}}
+@media(prefers-reduced-motion:reduce){.bn-svg *{animation:none!important}}
