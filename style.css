@@ -277,3 +277,13 @@ h1 em,h2 em,h3 em{font-style:italic;font-weight:500}
 .sk-copy .sk-quote{font-size:clamp(16px,1.5vw,19px)}
 .sk-num b{font-size:clamp(28px,3.4vw,40px);font-weight:500}
 .quote{font-size:22px}
+/* Unified heading style across the whole site */
+h1,h2,h3,h4,.hh-copy .hh-tag,.eq-left h2,.sk-copy h3,.destination-body h3,.step h3,.card h3,.pagehead h1,.hero h1,.proposal-layout h2,.rv-head h2,.hh-copy h2{font-family:'Playfair Display',serif;font-style:normal;font-weight:600;letter-spacing:-.015em;line-height:1.18;color:var(--wine,#650e31)}
+h1 em,h2 em,h3 em,.hero h1 em{font-family:'Playfair Display',serif;font-style:italic;font-weight:500;color:#a96d2b;letter-spacing:-.01em}
+h2,.hh-copy .hh-tag,.eq-left h2,.rv-head h2{font-size:clamp(32px,3.6vw,50px)}
+h3,.sk-copy h3{font-size:clamp(22px,2.2vw,30px)}
+.destination-body h3{font-size:26px}.step h3{font-size:17px}
+.eq-left h2{color:#1d1416}
+.hh-copy .hh-tag{font-size:clamp(32px,3.6vw,50px);margin:12px 0 18px}
+h1,h2,h3,h4,.hh-copy .hh-tag,.eq-left h2,.sk-copy h3,.hero h1,.rv-head h2{letter-spacing:-.02em!important}
+h1 em,h2 em,h3 em{letter-spacing:-.01em!important}
