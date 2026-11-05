@@ -255,3 +255,6 @@ h1,h2,h3,h4,h5,h6,.eq-left h2,.eq-fhead span,.hh-copy .hh-tag,.sk-copy .sk-sub,.
 .process.dd-ready.dd-in .pline i{transform:scaleY(1)}
 .process .step h3{margin:0 0 6px}
 }
+/* Banner: smaller height & type on desktop */
+@media(min-width:701px){.hero-banner{background:#fdfaf4}.hero-banner .bn-d{max-width:1120px;margin:0 auto}}
+@media(min-width:701px){.hero-banner .bn-d{-webkit-mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent);mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent)}}
