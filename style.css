@@ -239,3 +239,19 @@ h1,h2,h3,h4,h5,h6,.eq-left h2,.eq-fhead span,.hh-copy .hh-tag,.sk-copy .sk-sub,.
 .process .step:nth-child(2){--i:0}.process .step:nth-child(3){--i:1}.process .step:nth-child(4){--i:2}.process .step:nth-child(5){--i:3}.process .step:nth-child(6){--i:4}.process .step:nth-child(7){--i:5}
 @keyframes nfill{0%{transform:scale(1);background:#fff;color:#671827}50%{transform:scale(1.28);box-shadow:0 0 0 8px rgba(185,133,56,.18)}100%{transform:scale(1);background:#b98538;color:#fff;box-shadow:0 0 0 6px #fffaf4}}
 @media(prefers-reduced-motion:reduce){.process.dd-ready .pline i{transform:none}.process.dd-ready .step .number{background:#b98538;color:#fff}.process.dd-ready.dd-in .step .number,.process.dd-ready.dd-in .pline i{animation:none;transition:none}}
+/* Mobile homepage */
+.hero-banner .bn-m{display:none}
+@media(max-width:700px){
+.hero-banner,.hero.hero-only .hero-banner{overflow:hidden}
+.hero-banner .bn-d{display:none}.hero-banner .bn-m{display:block;width:100%;height:auto;max-width:none}
+.rv-photo{max-width:210px}
+.rv-left{gap:22px}
+.process{display:block;padding:6px 0 0 4px}
+.process .step{text-align:left;padding:0 0 30px 62px;margin:0}
+.process .step .number{position:absolute;left:0;top:-4px;margin:0}
+.process .pline{left:19px;right:auto;width:2px;top:12px;bottom:92px;height:auto}
+.process .pline i{transform-origin:top center}
+.process.dd-ready .pline i{transform:scaleY(0)}
+.process.dd-ready.dd-in .pline i{transform:scaleY(1)}
+.process .step h3{margin:0 0 6px}
+}
