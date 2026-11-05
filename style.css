@@ -256,7 +256,7 @@ h1,h2,h3,h4,h5,h6,.eq-left h2,.eq-fhead span,.hh-copy .hh-tag,.sk-copy .sk-sub,.
 .process .step h3{margin:0 0 6px}
 }
 /* Banner: smaller height & type on desktop */
-@media(min-width:701px){.hero-banner{background:#fdfaf4}.hero-banner .bn-d{max-width:1120px;margin:0 auto}}
+@media(min-width:701px){.hero-banner{background:#fdfaf4}.hero-banner .bn-d{max-width:1500px;margin:0 auto}}
 @media(min-width:701px){.hero-banner .bn-d{-webkit-mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent);mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent)}}
 /* Service ribbon: line-icon SVGs, banner-style gradient, looping draw */
 .service-ribbon{position:relative;overflow:hidden;border:0;padding:22px 0;background:radial-gradient(ellipse 28% 120% at 8% 40%,#f7d9de88,transparent 70%),radial-gradient(ellipse 30% 120% at 50% 100%,#f6e3b4aa,transparent 70%),radial-gradient(ellipse 28% 120% at 94% 30%,#f7d9de88,transparent 70%),radial-gradient(ellipse 22% 120% at 72% 90%,#dfe8d188,transparent 70%),#fdfaf4}
@@ -268,3 +268,4 @@ h1,h2,h3,h4,h5,h6,.eq-left h2,.eq-fhead span,.hh-copy .hh-tag,.sk-copy .sk-sub,.
 .ribbon-grid a:nth-child(2) .ri *{animation-delay:.35s}.ribbon-grid a:nth-child(3) .ri *{animation-delay:.7s}.ribbon-grid a:nth-child(4) .ri *{animation-delay:1.05s}.ribbon-grid a:nth-child(5) .ri *{animation-delay:1.4s}.ribbon-grid a:nth-child(6) .ri *{animation-delay:1.75s}.ribbon-grid a:nth-child(7) .ri *{animation-delay:2.1s}
 .ribbon-grid a:hover .ri{stroke:#8d1138}
 @media(prefers-reduced-motion:reduce){.ri *{animation:none;stroke-dasharray:none}}
+@media(max-width:700px){.ribbon-grid{grid-template-columns:repeat(2,1fr)}.ribbon-grid a:last-child{grid-column:1/-1;border-right:0}.ri{width:38px;height:38px}}
