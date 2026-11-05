@@ -13,5 +13,18 @@ const hotelObserver=document.querySelector('#hotelGrid');if(hotelObserver)new Mu
 // Preselect wedding destination on enquiry page from a city card.
 const destParam=new URLSearchParams(location.search).get('destination');if(destParam){document.querySelectorAll('select').forEach(sel=>{const opt=[...sel.options].find(o=>o.textContent.trim().toLowerCase()===destParam.toLowerCase());if(opt)sel.value=opt.value;});}
 
-(function(){var rows=document.querySelectorAll('.sk-row');if(!rows.length)return;var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('sk-in');io.unobserve(e.target)}})},{threshold:.25});rows.forEach(function(r){io.observe(r)});document.querySelectorAll('.sk-toggle button').forEach(function(b){b.addEventListener('click',function(){var c=b.dataset.mode==='colour';document.querySelector('.sk-list').classList.toggle('sk-colour',c);document.querySelectorAll('.sk-toggle button').forEach(function(x){var on=x===b;x.classList.toggle('on',on);x.setAttribute('aria-pressed',on)})})})})();
-(function(){var sl=document.querySelectorAll('.rv-slide'),bt=document.querySelectorAll('.rv-nav button');if(!sl.length)return;var i=0,t;function go(n){i=n;sl.forEach(function(s,k){s.classList.toggle('on',k===n)});bt.forEach(function(b,k){b.classList.toggle('on',k===n)})}function auto(){clearInterval(t);t=setInterval(function(){go((i+1)%sl.length)},7000)}bt.forEach(function(b,k){b.addEventListener('click',function(){go(k);auto()})});auto()})();
+(function(){var rows=document.querySelectorAll('.sk-row,.hh-art');if(!rows.length)return;var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('sk-in');io.unobserve(e.target)}})},{threshold:.25});rows.forEach(function(r){io.observe(r)});document.querySelectorAll('.sk-toggle button').forEach(function(b){b.addEventListener('click',function(){var c=b.dataset.mode==='colour';document.querySelector('.sk-list').classList.toggle('sk-colour',c);document.querySelectorAll('.sk-toggle button').forEach(function(x){var on=x===b;x.classList.toggle('on',on);x.setAttribute('aria-pressed',on)})})})})();
+(function(){var sec=document.querySelector('.rv-section');if(!sec)return;var box=sec.querySelector('.rv-slides'),nav=sec.querySelector('.rv-nav'),i=0,t;
+function items(){return{sl:box.querySelectorAll('.rv-slide'),bt:nav.querySelectorAll('button')}}
+function go(n){var e=items();i=n;e.sl.forEach(function(s,k){s.classList.toggle('on',k===n)});e.bt.forEach(function(b,k){b.classList.toggle('on',k===n)})}
+function auto(){clearInterval(t);t=setInterval(function(){go((i+1)%items().sl.length)},7000)}
+function bind(){items().bt.forEach(function(b,k){b.addEventListener('click',function(){go(k);auto()})})}
+function esc(x){var d=document.createElement('div');d.textContent=x;return d.innerHTML}
+bind();auto();
+var key=sec.dataset.gKey,pid=sec.dataset.gPlace;if(!key||!pid)return;
+fetch('https://places.googleapis.com/v1/places/'+encodeURIComponent(pid)+'?fields=rating,userRatingCount,reviews&key='+encodeURIComponent(key)).then(function(r){return r.json()}).then(function(d){
+var rv=(d.reviews||[]).filter(function(r){return r.rating>=4&&r.text&&r.text.text});if(!rv.length)return;
+box.innerHTML=rv.map(function(r,k){return '<figure class="rv-slide'+(k?'':' on')+'"><blockquote>'+esc(r.text.text.length>320?r.text.text.slice(0,317)+'…':r.text.text)+'</blockquote><figcaption><i></i><b>'+esc(r.authorAttribution.displayName)+'</b><small>'+'★'.repeat(r.rating)+' · '+esc(r.relativePublishTimeDescription||'Google review')+'</small></figcaption></figure>'}).join('');
+nav.innerHTML=rv.map(function(r,k){return '<button type="button" class="'+(k?'':'on')+'" aria-label="Review '+(k+1)+'">0'+(k+1)+'</button>'}).join('');
+var rt=sec.querySelector('.rv-rate b');if(rt&&d.rating)rt.textContent=d.rating.toFixed(1)+' · '+d.userRatingCount+' Google reviews';
+bind();go(0);auto()}).catch(function(){})})();
