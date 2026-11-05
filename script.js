@@ -29,3 +29,10 @@ nav.innerHTML=rv.map(function(r,k){return '<button type="button" class="'+(k?'':
 var rt=sec.querySelector('.rv-rate b');if(rt&&d.rating)rt.textContent=d.rating.toFixed(1)+' · '+d.userRatingCount+' Google reviews';
 bind();go(0);auto()}).catch(function(){})})();
 (function(){var t=document.querySelector('#enq-message'),c=document.querySelector('.eq-count');if(t&&c)t.addEventListener('input',function(){c.textContent=t.value.length+' / 500'})})();
+(function(){var b=document.getElementById('heroBanner');if(!b||matchMedia('(hover:none)').matches)return;var R=0,target=0,x=0,y=0,raf;var max=function(){return Math.max(90,Math.min(150,b.clientWidth*.09))};
+function tick(){R+=(target-R)*.16;b.style.setProperty('--r',R.toFixed(1)+'px');if(Math.abs(target-R)>.5)raf=requestAnimationFrame(tick);else{R=target;b.style.setProperty('--r',R+'px');raf=0}}
+function go(){if(!raf)raf=requestAnimationFrame(tick)}
+function pos(e){var r=b.getBoundingClientRect();b.style.setProperty('--x',(e.clientX-r.left)+'px');b.style.setProperty('--y',(e.clientY-r.top)+'px')}
+b.addEventListener('mouseenter',function(e){pos(e);target=max();b.classList.add('bw-on');go()});
+b.addEventListener('mousemove',function(e){pos(e);if(target===0){target=max();go()}});
+b.addEventListener('mouseleave',function(){target=0;b.classList.remove('bw-on');go()})})();
