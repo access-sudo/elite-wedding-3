@@ -17,7 +17,7 @@ const destParam=new URLSearchParams(location.search).get('destination');if(destP
 (function(){var sec=document.querySelector('.rv-section');if(!sec)return;var box=sec.querySelector('.rv-slides'),nav=sec.querySelector('.rv-nav'),i=0,t;
 function items(){return{sl:box.querySelectorAll('.rv-slide'),bt:nav.querySelectorAll('button')}}
 function go(n){var e=items();i=n;e.sl.forEach(function(s,k){s.classList.toggle('on',k===n)});e.bt.forEach(function(b,k){b.classList.toggle('on',k===n)})}
-function auto(){clearInterval(t);t=setInterval(function(){go((i+1)%items().sl.length)},7000)}
+function auto(){clearInterval(t);t=setInterval(function(){go((i+1)%items().sl.length)},9000)}
 function bind(){items().bt.forEach(function(b,k){b.addEventListener('click',function(){go(k);auto()})})}
 function esc(x){var d=document.createElement('div');d.textContent=x;return d.innerHTML}
 bind();auto();
