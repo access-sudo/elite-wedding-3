@@ -37,3 +37,4 @@ b.addEventListener('mouseenter',function(e){pos(e);target=max();b.classList.add(
 b.addEventListener('mousemove',function(e){pos(e);if(target===0){target=max();go()}});
 b.addEventListener('mouseleave',function(){target=0;b.classList.remove('bw-on');go()})})();
 (function(){var p=document.querySelector('.process');if(!p)return;p.classList.add('dd-ready');var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){p.classList.add('dd-in');io.disconnect()}})},{threshold:.3});io.observe(p)})();
+(function(){var b=document.getElementById('heroBanner');if(!b)return;var s=b.querySelector('.bn-svg'),l=b.querySelector('.lens');if(s&&l){var c=s.cloneNode(true);c.removeAttribute('role');c.setAttribute('aria-hidden','true');l.appendChild(c)}})();
