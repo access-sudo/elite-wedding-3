@@ -28,3 +28,4 @@ box.innerHTML=rv.map(function(r,k){return '<figure class="rv-slide'+(k?'':' on')
 nav.innerHTML=rv.map(function(r,k){return '<button type="button" class="'+(k?'':'on')+'" aria-label="Review '+(k+1)+'">0'+(k+1)+'</button>'}).join('');
 var rt=sec.querySelector('.rv-rate b');if(rt&&d.rating)rt.textContent=d.rating.toFixed(1)+' · '+d.userRatingCount+' Google reviews';
 bind();go(0);auto()}).catch(function(){})})();
+(function(){var t=document.querySelector('#enq-message'),c=document.querySelector('.eq-count');if(t&&c)t.addEventListener('input',function(){c.textContent=t.value.length+' / 500'})})();
