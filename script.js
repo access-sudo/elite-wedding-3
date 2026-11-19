@@ -1,4 +1,64 @@
-const menu=document.querySelector('.menu');menu?.addEventListener('click',()=>document.querySelector('.links').classList.toggle('open'));const ob=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('show');ob.unobserve(e.target)}}),{threshold:.08});document.querySelectorAll('.reveal').forEach(el=>ob.observe(el));const slides=[{title:'We Plan Every Detail.<br><em>You Enjoy Every Moment.</em>',desc:'Handcrafted celebrations, thoughtfully planned from the first conversation to the final farewell.',art:'custom_watercolor_pavilion.webp'},{title:'A Wedding as Unique<br><em>as Your Story.</em>',desc:'Personalised wedding planning, artistic design and flawless hospitality.',art:'slide2.webp'},{title:'From Royal Palaces<br><em>to Unforgettable Moments.</em>',desc:'Discover beautiful wedding destinations across India.',art:'slide3.webp'}];let n=0;function setSlide(i){n=i;let s=slides[i];let h=document.querySelector('#heroTitle');if(!h)return;h.innerHTML=s.title;document.querySelector('#heroDesc').textContent=s.desc;document.querySelectorAll('.sliderdots button').forEach((b,j)=>b.classList.toggle('active',j===i))}document.querySelectorAll('.sliderdots button').forEach((b,i)=>b.addEventListener('click',()=>setSlide(i)));if(document.querySelector('#heroTitle'))setInterval(()=>setSlide((n+1)%3),6500);function submitLead(e){e.preventDefault();let f=e.target,d=new FormData(f);let lines=['New Elite Weddings Enquiry',...Array.from(d.entries()).map(([k,v])=>`${k}: ${v}`)];let msg=encodeURIComponent(lines.join('\n'));let url='https://wa.me/918979406406?text='+msg;document.querySelector('#formNotice').textContent='Your enquiry is ready in WhatsApp. Please press Send there to complete it.';window.open(url,'_blank','noopener');}document.querySelectorAll('form.lead').forEach(f=>f.addEventListener('submit',submitLead));const hotelGrid=document.querySelector('#hotelGrid');if(hotelGrid){let data=JSON.parse(document.querySelector('#hotelData').textContent);let cities=['All',...Object.keys(data)];let box=document.querySelector('#hotelFilters');cities.forEach(city=>{let b=document.createElement('button');b.className='filter'+(city==='All'?' active':'');b.textContent=city;b.onclick=()=>{box.querySelectorAll('button').forEach(x=>x.classList.remove('active'));b.classList.add('active');render(city)};box.appendChild(b)});function render(city){hotelGrid.innerHTML='';Object.entries(data).forEach(([loc,names])=>{if(city!=='All'&&loc!==city)return;names.forEach(name=>{let c=document.createElement('div');c.className='hotel';let h=document.createElement('h3');h.textContent=name;let p=document.createElement('p');p.textContent=loc+' · Wedding venue enquiry';let a=document.createElement('a');a.className='textlink';a.href='https://wa.me/918979406406?text='+encodeURIComponent('Hello Elite Weddings, I would like wedding planning information for '+name+' in '+loc);a.target='_blank';a.textContent='Enquire about this venue →';c.append(h,p,a);hotelGrid.appendChild(c)})})}render('All')}
+const menu=document.querySelector('.menu');menu?.addEventListener('click',()=>document.querySelector('.links').classList.toggle('open'));const ob=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('show');ob.unobserve(e.target)}}),{threshold:.08});document.querySelectorAll('.reveal').forEach(el=>ob.observe(el));// Hero Banner Image Slider
+(function(){
+  const slider=document.querySelector('#heroSlider');
+  if(!slider)return;
+  const slides=slider.querySelectorAll('.hero-slide');
+  const dots=slider.querySelectorAll('.slider-dot');
+  const prevBtn=slider.querySelector('.slider-arrow.prev');
+  const nextBtn=slider.querySelector('.slider-arrow.next');
+  if(!slides.length)return;
+  let current=0;
+  let timer=null;
+
+  function showSlide(index){
+    current=(index+slides.length)%slides.length;
+    slides.forEach((s,i)=>{
+      const active=i===current;
+      s.classList.toggle('active',active);
+      s.setAttribute('aria-hidden',!active);
+    });
+    dots.forEach((d,i)=>{
+      const active=i===current;
+      d.classList.toggle('active',active);
+      d.setAttribute('aria-selected',active);
+    });
+  }
+
+  function startAuto(){
+    stopAuto();
+    timer=setInterval(()=>showSlide(current+1),5000);
+  }
+
+  function stopAuto(){
+    if(timer){clearInterval(timer);timer=null;}
+  }
+
+  prevBtn?.addEventListener('click',()=>{showSlide(current-1);startAuto();});
+  nextBtn?.addEventListener('click',()=>{showSlide(current+1);startAuto();});
+
+  dots.forEach((dot,i)=>{
+    dot.addEventListener('click',()=>{showSlide(i);startAuto();});
+  });
+
+  slider.addEventListener('mouseenter',stopAuto);
+  slider.addEventListener('mouseleave',startAuto);
+  slider.addEventListener('focusin',stopAuto);
+  slider.addEventListener('focusout',startAuto);
+
+  let touchStartX=0;
+  let touchEndX=0;
+  slider.addEventListener('touchstart',e=>{touchStartX=e.changedTouches[0].screenX;},{passive:true});
+  slider.addEventListener('touchend',e=>{
+    touchEndX=e.changedTouches[0].screenX;
+    const diff=touchEndX-touchStartX;
+    if(Math.abs(diff)>40){
+      if(diff<0){showSlide(current+1);}else{showSlide(current-1);}
+      startAuto();
+    }
+  },{passive:true});
+
+  startAuto();
+})();function submitLead(e){e.preventDefault();let f=e.target,d=new FormData(f);let lines=['New Elite Weddings Enquiry',...Array.from(d.entries()).map(([k,v])=>`${k}: ${v}`)];let msg=encodeURIComponent(lines.join('\n'));let url='https://wa.me/918979406406?text='+msg;document.querySelector('#formNotice').textContent='Your enquiry is ready in WhatsApp. Please press Send there to complete it.';window.open(url,'_blank','noopener');}document.querySelectorAll('form.lead').forEach(f=>f.addEventListener('submit',submitLead));const hotelGrid=document.querySelector('#hotelGrid');if(hotelGrid){let data=JSON.parse(document.querySelector('#hotelData').textContent);let cities=['All',...Object.keys(data)];let box=document.querySelector('#hotelFilters');cities.forEach(city=>{let b=document.createElement('button');b.className='filter'+(city==='All'?' active':'');b.textContent=city;b.onclick=()=>{box.querySelectorAll('button').forEach(x=>x.classList.remove('active'));b.classList.add('active');render(city)};box.appendChild(b)});function render(city){hotelGrid.innerHTML='';Object.entries(data).forEach(([loc,names])=>{if(city!=='All'&&loc!==city)return;names.forEach(name=>{let c=document.createElement('div');c.className='hotel';let h=document.createElement('h3');h.textContent=name;let p=document.createElement('p');p.textContent=loc+' · Wedding venue enquiry';let a=document.createElement('a');a.className='textlink';a.href='https://wa.me/918979406406?text='+encodeURIComponent('Hello Elite Weddings, I would like wedding planning information for '+name+' in '+loc);a.target='_blank';a.textContent='Enquire about this venue →';c.append(h,p,a);hotelGrid.appendChild(c)})})}render('All')}
 
 const qf=document.querySelector('#quickLead');qf?.addEventListener('submit',e=>{e.preventDefault();const data=new FormData(qf);const message='Hello Elite Weddings, I would like to enquire about wedding planning.\n'+[...data].map(([k,v])=>k+': '+v).join('\n');window.open('https://wa.me/918979406406?text='+encodeURIComponent(message),'_blank','noopener');});
 
