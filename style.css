@@ -294,10 +294,10 @@ h1 em,h2 em,h3 em{letter-spacing:-.01em!important}
 .hero-slider-wrap{position:relative;background:#fdfaf4;overflow:hidden;padding:0;min-height:auto}
 .hero-slider-wrap:before,.hero-slider-wrap:after{display:none!important}
 .hero-slider{position:relative;max-width:100%;margin:0 auto;overflow:hidden;width:100%}
-.hero-slides{position:relative;width:100%;aspect-ratio:1670/942;overflow:hidden;background:#fdfaf4}
+.hero-slides{position:relative;width:100%;aspect-ratio:1670/742;overflow:hidden;background:#fdfaf4}
 .hero-slide{position:absolute;inset:0;width:100%;height:100%;opacity:0;visibility:hidden;transition:opacity .65s ease-in-out,visibility .65s ease-in-out}
 .hero-slide.active{opacity:1;visibility:visible;z-index:2}
-.hero-slide img{display:block;width:100%;height:85%;object-fit:fill}
+.hero-slide img{display:block;width:100%;height:100%;object-fit:fill}
 .slider-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:10;background:rgba(75,16,44,.65);color:#fff;border:1px solid rgba(198,138,45,.45);width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:18px;line-height:1;transition:all .25s ease;backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}
 .slider-arrow:hover{background:var(--wine,#650e31);border-color:var(--gold,#c68a2d);transform:translateY(-50%) scale(1.08)}
 .slider-arrow.prev{left:18px}
