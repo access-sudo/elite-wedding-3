@@ -7,8 +7,10 @@ const menu=document.querySelector('.menu');menu?.addEventListener('click',()=>do
   const prevBtn=slider.querySelector('.slider-arrow.prev');
   const nextBtn=slider.querySelector('.slider-arrow.next');
   if(!slides.length)return;
-  let current=0;
+  let current=Array.from(slides).findIndex(s=>s.classList.contains('active'));
+  if(current===-1)current=0;
   let timer=null;
+  const INTERVAL=3500;
 
   function showSlide(index){
     current=(index+slides.length)%slides.length;
@@ -26,7 +28,7 @@ const menu=document.querySelector('.menu');menu?.addEventListener('click',()=>do
 
   function startAuto(){
     stopAuto();
-    timer=setInterval(()=>showSlide(current+1),5000);
+    timer=setInterval(()=>{showSlide(current+1);},INTERVAL);
   }
 
   function stopAuto(){
@@ -40,10 +42,9 @@ const menu=document.querySelector('.menu');menu?.addEventListener('click',()=>do
     dot.addEventListener('click',()=>{showSlide(i);startAuto();});
   });
 
-  slider.addEventListener('mouseenter',stopAuto);
-  slider.addEventListener('mouseleave',startAuto);
-  slider.addEventListener('focusin',stopAuto);
-  slider.addEventListener('focusout',startAuto);
+  document.addEventListener('visibilitychange',()=>{
+    if(document.hidden){stopAuto();}else{startAuto();}
+  });
 
   let touchStartX=0;
   let touchEndX=0;
