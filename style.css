@@ -291,9 +291,11 @@ h1 em,h2 em,h3 em{letter-spacing:-.01em!important}
 @media(max-width:620px){.split>.grid.g2{grid-template-columns:1fr 1fr;gap:12px}.stat{padding:14px 14px 14px 16px}.stat strong{font-size:28px}.stat small{font-size:12px}}
 
 /* Hero Image Slider */
-.hero-slider-wrap{position:relative;background:#fdfaf4;overflow:hidden;padding:0;min-height:auto}
+.hero-slider-wrap{position:relative;background:#fdfaf4;overflow:hidden;padding:0;margin:0;min-height:auto;width:100%}
 .hero-slider-wrap:before,.hero-slider-wrap:after{display:none!important}
-.hero-slider{position:relative;max-width:100%;margin:0 auto;overflow:hidden;width:100%}
+.hero-slider{position:relative;max-width:100%;margin:0 auto;overflow:hidden;width:100%;display:none!important}
+.hero-banner-wrap{width:100%;margin:0;padding:0;line-height:0;overflow:hidden}
+.hero-banner-wrap img{display:block;width:100%;height:auto;margin:0;padding:0;border:0}
 .hero-slides{position:relative;width:100%;aspect-ratio:1670/742;overflow:hidden;background:#fdfaf4}
 .hero-slide{position:absolute;inset:0;width:100%;height:100%;opacity:0;visibility:hidden;transition:opacity .65s ease-in-out,visibility .65s ease-in-out}
 .hero-slide.active{opacity:1;visibility:visible;z-index:2}
