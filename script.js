@@ -1,7 +1,7 @@
 const menu=document.querySelector('.menu');menu?.addEventListener('click',()=>document.querySelector('.links').classList.toggle('open'));const ob=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('show');ob.unobserve(e.target)}}),{threshold:.08});document.querySelectorAll('.reveal').forEach(el=>ob.observe(el));// Hero Banner Image Slider
 (function(){
   const slider=document.querySelector('#heroSlider');
-  if(!slider)return;
+  if(!slider||slider.style.display==='none'||slider.getAttribute('aria-hidden')==='true')return;
   const slides=slider.querySelectorAll('.hero-slide');
   const dots=slider.querySelectorAll('.slider-dot');
   const prevBtn=slider.querySelector('.slider-arrow.prev');
